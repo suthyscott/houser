@@ -44,7 +44,7 @@ class Dashboard extends Component {
                     return <House element={e} delete={this.handleDeleteHouse}/>
                 })}
                 
-                <Link to='/wizard'><button>Add New Property</button></Link>
+                <Link to='/wizard/stepone'><button>Add New Property</button></Link>
             </div>
         )
     }
