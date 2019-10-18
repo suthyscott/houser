@@ -1,0 +1,7 @@
+.house {
+    height: 200px;
+    width: 200px;
+    border: solid 1px black;
+    display: flex;
+    align-items: center;
+}
