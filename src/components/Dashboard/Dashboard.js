@@ -39,12 +39,18 @@ class Dashboard extends Component {
     render(){
         return(
             <div className='house-list'>
+              <div className='sub-header'>
                 Dashboard
+                <Link to='/wizard/stepone'><button>Add New Property</button></Link>
+              </div>
+                
+              <div className='home-listings'>
+                Home Listings
                 {this.state.list.map(e => {
                     return <House element={e} delete={this.handleDeleteHouse}/>
                 })}
+              </div>
                 
-                <Link to='/wizard/stepone'><button>Add New Property</button></Link>
             </div>
         )
     }

@@ -1,5 +1,18 @@
+body {
+    background-color: #AFD4C0
+}
+
 .house-list {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.sub-header {
+    background-color: #E5F4EC;
+    width: 500px;
+}
+
+.home-listings {
+    background-color: #E5F4EC;
 }
