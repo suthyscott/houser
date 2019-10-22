@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {addStepTwo} from '../../ducks/reducer';
+import {addStepTwo, cancel} from '../../ducks/reducer';
 
 
 
@@ -29,7 +29,6 @@ class StepTwo extends Component {
         console.log(this.props.img)
         return(
             <div>
-               Step Two
 
                 <div className='input-form'>
                     Property Name
@@ -53,4 +52,4 @@ const mapStateToProps = reduxState => {
  }
  
  
- export default connect(mapStateToProps, {addStepTwo})(StepTwo)
+ export default connect(mapStateToProps, {addStepTwo, cancel})(StepTwo)

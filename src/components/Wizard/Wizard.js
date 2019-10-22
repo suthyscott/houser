@@ -5,6 +5,9 @@ import {Route} from 'react-router-dom';
 import StepOne from '../StepOne/StepOne';
 import StepTwo from '../StepTwo/StepTwo';
 import StepThree from '../StepThree/StepThree';
+import {connect} from 'react-redux';
+import {complete, cancel} from '..//../ducks/reducer'
+
 
 
 
@@ -17,9 +20,11 @@ class Wizard extends Component {
     render(){
         return(
             <div>
-                Wizard
-
-                <Link to='/'><button>Cancel</button></Link>
+                <div>
+                   Add New Listing
+                   <Link to='/'><button onClick={() => this.props.cancel()}>Cancel</button></Link>
+               </div>
+               
                 <Route path='/wizard/stepone' component={StepOne}/>
                 <Route path='/wizard/steptwo' component={StepTwo}/>
                 <Route path='/wizard/stepthree' component={StepThree}/>
@@ -29,4 +34,4 @@ class Wizard extends Component {
     }
 }
 
-export default Wizard
+export default connect(null, {cancel})(Wizard)

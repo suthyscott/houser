@@ -15,11 +15,11 @@ const ADD_STEP_TWO = 'ADD_STEP_TWO'
 
 const ADD_STEP_THREE = 'ADD_STEP_THREE'
 
-// const COMPLETE = 'COMPLETE'
+const COMPLETE = 'COMPLETE'
+
+const CANCEL = 'CANCEL'
 
 export const addStepOne = (name, address, city, state, zipcode) => {
-    console.log('hit')
-
     return {
         type: ADD_STEP_ONE,
         payload: {
@@ -33,7 +33,6 @@ export const addStepOne = (name, address, city, state, zipcode) => {
 } 
 
 export const addStepTwo = (img) => {
-    console.log(img)
     return {
         type: ADD_STEP_TWO,
         payload: {
@@ -52,21 +51,21 @@ export const addStepThree = (mortgage, rent) => {
     }
 }
 
-// export const complete = (name, address, city, state, zipcode, img, mortgage, rent) => {
-//     return {
-//         type: COMPLETE,
-//         payload: {
-//             name,
-//             address,
-//             city,
-//             state,
-//             zipcode, 
-//             img, 
-//             mortgage,
-//             rent
-//         }
-//     }
-// } 
+export const complete = () => {
+    console.log('hit')
+    return {
+        type: COMPLETE,
+        payload: initialState
+    }
+} 
+
+export const cancel = () => {
+    console.log('hit')
+    return {
+        type: COMPLETE,
+        payload: initialState
+    }
+} 
 
 export default function (reduxState = initialState, action){
     const {type, payload}= action
@@ -109,18 +108,11 @@ export default function (reduxState = initialState, action){
                 mortgage: mortgage,
                 rent: rent
             }
-        // case COMPLETE:
-        //     const {mortgage, rent} = payload
-        //     return {
-        //         name,
-        //         address,
-        //         city,
-        //         state,
-        //         zipcode,
-        //         img,
-        //         mortgage,
-        //         rent
-        //     }
+        case COMPLETE:
+            return {payload}
+        case CANCEL:
+            return {payload}
+        
         default:
             return reduxState
     }

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import  {addStepThree} from '../../ducks/reducer';
+import  {addStepThree, complete, cancel} from '../../ducks/reducer';
 
 
 
@@ -20,14 +20,14 @@ class StepThree extends Component {
         this.setState({
             mortgage: e.target.value
         })
-        console.log(this.state.name)
+        console.log(this.state.mortgage)
     }
 
     handleUpdateRent = (e) =>{
         this.setState({
             rent: e.target.value
         })
-        console.log(this.state.address)
+        console.log(this.state.rent)
     }
 
     handleAddHouse = () => {
@@ -43,7 +43,6 @@ class StepThree extends Component {
         const {mortgage, rent} = this.state
         return(
             <div>
-               Step Three
 
                 <div className='input-form'>
                     Monthly Mortgage Amount
@@ -54,7 +53,7 @@ class StepThree extends Component {
                 </div>
 
                 <Link to='/wizard/steptwo'><button onClick={() => this.props.addStepThree(mortgage, rent)}>Previous Step</button></Link>
-                <Link to='/'><button onClick={(e) => this.handleAddHouse()} >Complete</button></Link>
+                <Link to='/'><button onClick={(e) => this.handleAddHouse(), () => this.props.complete()} >Complete</button></Link>
 
             </div>
         )
@@ -76,4 +75,4 @@ const mapStateToProps = reduxState => {
  }
  
  
- export default connect(mapStateToProps, {addStepThree})(StepThree)
+ export default connect(mapStateToProps, {addStepThree, complete, cancel})(StepThree)

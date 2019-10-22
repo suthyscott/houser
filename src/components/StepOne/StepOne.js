@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import  {addStepOne} from '../../ducks/reducer';
+import  {addStepOne, cancel} from '../../ducks/reducer';
 
 
 class StepOne extends Component {
@@ -71,9 +71,7 @@ class StepOne extends Component {
         const {name, address, city, state, zipcode} = this.state
         return(
             <div>
-               Step One
-
-                <div className='input-form'>
+                            <div className='input-form'>
                     Property Name
                     <input name='name' placeholder='name' value={this.state.name} onChange={e => this.handleUpdateName(e)}/>
                     Address
@@ -107,4 +105,4 @@ const mapStateToProps = reduxState => {
 }
 
 
-export default connect(mapStateToProps, {addStepOne})(StepOne)
+export default connect(mapStateToProps, {addStepOne, cancel})(StepOne)
