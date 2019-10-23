@@ -26,26 +26,29 @@ class Dashboard extends Component {
 
    handleDeleteHouse = (id) => {
        axios.delete(`/api/deletehouse/${id}`)
-       .then(axios.get(`/api/houselist`).then(res => {
-        this.setState({
-          list: res.data
-        })
-      })
-      .catch(err => {
-        console.log(err)
-      }))
+       .then(res => {
+         this.setState({
+           list: res.data
+         })
+       })
+   }
+
+   componentDidUpdate(prevProps, prevState){
+     if(this.state !== prevState){
+        this.render()
+     }
    }
 
     render(){
         return(
             <div className='house-list'>
               <div className='sub-header'>
-                Dashboard
+                <h1>Dashboard</h1>
                 <Link to='/wizard/stepone'><button>Add New Property</button></Link>
               </div>
                 
               <div className='home-listings'>
-                Home Listings
+                <h3>Home Listings</h3>
                 {this.state.list.map(e => {
                     return <House element={e} delete={this.handleDeleteHouse}/>
                 })}

@@ -1,8 +1,15 @@
 .house {
     height: 200px;
-    width: 458px;
+    width: 658px;
     border: solid 1px black;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin: 20px;
+}
+
+#img {
+    height: 120px;
+    width: 150px;
+    margin: 10px;
 }

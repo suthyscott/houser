@@ -25,8 +25,7 @@ class StepTwo extends Component {
 
     render(){
         const {img} = this.state
-        console.log(img)
-        console.log(this.props.img)
+
         return(
             <div>
 

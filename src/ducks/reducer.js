@@ -51,18 +51,10 @@ export const addStepThree = (mortgage, rent) => {
     }
 }
 
-export const complete = () => {
-    console.log('hit')
-    return {
-        type: COMPLETE,
-        payload: initialState
-    }
-} 
-
 export const cancel = () => {
-    console.log('hit')
+    // console.log('hit')
     return {
-        type: COMPLETE,
+        type: CANCEL,
         payload: initialState
     }
 } 
@@ -83,7 +75,7 @@ export default function (reduxState = initialState, action){
                 rent: reduxState.rent
             }
         case ADD_STEP_TWO:
-            console.log(payload)
+            // console.log(payload)
             const {img} = payload
             return {
                 name: reduxState.name,
@@ -96,7 +88,7 @@ export default function (reduxState = initialState, action){
                 rent: reduxState.rent
             }
         case ADD_STEP_THREE:
-            console.log(payload.img)
+            // console.log(payload.img)
             const {mortgage, rent} = payload
             return {
                 name: reduxState.name,
@@ -108,9 +100,10 @@ export default function (reduxState = initialState, action){
                 mortgage: mortgage,
                 rent: rent
             }
-        case COMPLETE:
-            return {payload}
+        // case COMPLETE:
+        //     return {payload}
         case CANCEL:
+            // console.log('hit cancel')
             return {payload}
         
         default:
